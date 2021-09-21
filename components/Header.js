@@ -16,7 +16,7 @@ function Header() {
             </Button>
             <Icon name='description' size='5xl' color='blue' />
             <h1 className='hidden md:inline-flex ml-2 text-gray-700 text-2xl'>Docs</h1>
-            <div className='flex flex-grow items-center px-5 py-2 bg-gray-100 text-gray-600 rounded-lg'>
+            <div className='flex flex-grow items-center px-5 py-2 bg-gray-100 text-gray-600 rounded-lg mx-5 md:mx-20'>
                 <Icon name='search' size='3xl' color='gray' />
                 <input type="text" placeholder='Search' className='flex-grow px-5 text-base bg-transparent outline-none'/>
             </div>
