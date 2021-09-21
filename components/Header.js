@@ -14,6 +14,8 @@ function Header() {
             >
                 <Icon name='menu' swize='3xl'/>
             </Button>
+            <Icon name='description' size='5xl' color='blue' />
+            <h1 className='hidden md:inline-flex ml-2 text-gray-700 text-2xl'>Docs</h1>
         </div>
     )
 }
