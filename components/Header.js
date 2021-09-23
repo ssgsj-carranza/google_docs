@@ -45,3 +45,4 @@ export default Header
 
 //LIBRARIES
 // npm install -E @material-tailwind/react
+// npm install firebase
