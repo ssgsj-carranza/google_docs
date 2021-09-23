@@ -9,6 +9,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <section>
+        <div className="max-w-3xl mx-auto">
+          
+        </div>
+      </section>
     </div>
   )
 }
