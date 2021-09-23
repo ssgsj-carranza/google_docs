@@ -35,7 +35,19 @@ export default function Home() {
               />
             </div>
             
-            <p>Blank</p>
+            <p className='ml-2 mt-2 font-semibold text-sm text-gray-700'>Blank</p>
+          
+          </div>
+        </div>
+      </section>
+
+    {/* DISPLAY DOCUMENTS SECTION */}
+      <section>
+        <div className='max-w-3xl mx-auto py-8'> 
+          <div>
+            <h2>My Documents</h2>
+            <p>Date Created</p>
+            <Icon name='folder' size='3xl' color='gray'/>
           </div>
         </div>
       </section>
