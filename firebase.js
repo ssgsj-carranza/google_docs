@@ -14,3 +14,5 @@ const firebaseConfig = {
   const db = app.firestore();
 
   export {db};
+
+  
