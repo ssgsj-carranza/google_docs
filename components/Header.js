@@ -45,6 +45,6 @@ export default Header
 
 //LIBRARIES
 // npm install -E @material-tailwind/react
-// npm install firebase
+// npm install firebase@8.7.1
 // npm install --save next-auth
 // npm install next-auth @next-auth/firebase-adapter
