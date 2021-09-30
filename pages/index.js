@@ -13,14 +13,16 @@ import { useState } from 'react';
 export default function Home() {
   const [session] = useSession();
   const [showModal, setShowModal] = useState(false);
+  const [input, setInput] = useState(false);
 
   if(!session) return <Login />;
 
   const modal = (
     <Modal size='sm' 
            active={showModal} 
-           toggler={() => setShowModal(false)} 
+           toggler={() => setShowModal('')} 
     >
+    
     <ModalBody>
         <input 
           value={input}
@@ -30,7 +32,26 @@ export default function Home() {
           placeholder='Enter document name'
           onKeyDown={(e) => e.key === 'Enter' && createDocument()}
         />
-    </ModalBody> 
+    </ModalBody>
+    
+    <ModalFooter>
+      <Button 
+        color='blue'
+        buttonType='link'
+        onClick={(e) => setShowModal(false)}
+        ripple='dark'
+      >
+        Cancel
+      </Button>
+      <Button 
+        color='blue'
+        onClick={createDocument}
+        ripple='light'
+      >
+        Create  
+      </Button>  
+    </ModalFooter> 
+    
     </Modal>
   );
 
