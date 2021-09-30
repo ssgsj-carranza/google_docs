@@ -10,6 +10,7 @@ import ModalBody from '@material-tailwind/react/ModalBody';
 import ModalFooter from '@material-tailwind/react/ModalFooter';
 import { useState } from 'react';
 import { db } from '../firebase';
+import firebase from 'firebase';
 
 export default function Home() {
   const [session] = useSession();
@@ -21,7 +22,13 @@ export default function Home() {
   const createDocument = () => {
     if (!input) return;
 
-    db.collection
+    db.collection('UserDocs').doc(session.user.email).collection('docs').add({
+      fileName: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setInput('');
+    setShowModal(false);
   };
 
   const modal = (
