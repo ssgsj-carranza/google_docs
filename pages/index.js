@@ -9,6 +9,7 @@ import Modal from '@material-tailwind/react/Modal';
 import ModalBody from '@material-tailwind/react/ModalBody';
 import ModalFooter from '@material-tailwind/react/ModalFooter';
 import { useState } from 'react';
+import { db } from '../firebase';
 
 export default function Home() {
   const [session] = useSession();
@@ -18,7 +19,9 @@ export default function Home() {
   if(!session) return <Login />;
 
   const createDocument = () => {
+    if (!input) return;
 
+    db.collection
   };
 
   const modal = (
