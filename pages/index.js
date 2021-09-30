@@ -17,6 +17,10 @@ export default function Home() {
 
   if(!session) return <Login />;
 
+  const createDocument = () => {
+
+  };
+
   const modal = (
     <Modal size='sm' 
            active={showModal} 
@@ -62,6 +66,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      {modal}
       <section className="bg-[#F8F9FA] pb-10 px-10">
         <div className="max-w-3xl mx-auto">
           <div className="py-6 flex items-center justify-between">
@@ -78,7 +83,7 @@ export default function Home() {
           </div>
           <div>
             
-            <div className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-700">
+            <div onClick={() => setShowModal(true)} className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-700">
               <Image 
                 src='https://links.papareact.com/pju'
                 layout='fill'
