@@ -53,3 +53,4 @@ export default Header
 // npm install firebase@8.7.1
 // npm install --save next-auth
 // npm install next-auth @next-auth/firebase-adapter
+// npm install --save react-firebase-hooks
