@@ -10,15 +10,20 @@ import Login from '../../components/Login';
 function Doc() {
     const [session] = useSession();
     const router = useRouter();
+    const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
+    // useDocumentOnce acts as a listener, goes into db pulls user email, and doc id 
 
     if(!session) return <Login />;
     
     return (
         <div>
             <header className="flex justify-between items-center p-3 pb-1">
-                <span onClick={() => router.push('/')}>
+                <span onClick={() => router.push('/')} className="cursor-pointer">
                     <Icon name="description" size="5xl" color='blue'/>
                 </span>
+                <div>
+                    <h2></h2>
+                </div>
             </header>
         </div>
     );
