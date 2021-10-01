@@ -9,6 +9,16 @@ function DocumentRow({id, fileName, date}) {
             <p className='flex-grow pl-5 w-10 pr-10 truncate'>{fileName}</p>
             {/* converts timestamp to local time zone (below) */}
             <p className='pr-5 text-sm'>{date?.toDate().toLocaleDateString()}</p>
+            <Button
+                color='gray'
+                buttonType='outline'
+                rounded={true}
+                iconOnly={true}
+                ripple='dark'
+                className='border-0'
+            >
+                <Icon name='more_vert' size='3xl'/>
+            </Button>
         </div>
     )
 }
