@@ -9,11 +9,17 @@ import Login from '../../components/Login';
 
 function Doc() {
     const [session] = useSession();
-    const router = useRouter();
-    const [snapshot, loadingSnapshot] = useDocumentOnce(db.collection('userDocs').doc(session.user.email).collection('docs').doc(id));
-    // useDocumentOnce acts as a listener, goes into db pulls user email, and doc id 
-
+   
     if(!session) return <Login />;
+    const router = useRouter();
+    const { id } = router.query;
+    const [snapshot, loadingSnapshot] = useDocumentOnce(
+        db.collection('userDocs').doc(session.user.email).collection
+        ('docs').doc(id));
+
+        console.log(snapshot);
+    // useDocumentOnce acts as a listener, goes into db pulls user email, and doc id 
+    
     
     return (
         <div>
@@ -21,8 +27,8 @@ function Doc() {
                 <span onClick={() => router.push('/')} className="cursor-pointer">
                     <Icon name="description" size="5xl" color='blue'/>
                 </span>
-                <div>
-                    <h2></h2>
+                <div className="flex-grow px-2">
+                    <h2>{snapshot?.data()?.fileName}</h2>
                 </div>
             </header>
         </div>
