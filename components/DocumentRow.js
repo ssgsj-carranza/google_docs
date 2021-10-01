@@ -4,7 +4,7 @@ import {useRouter} from 'next/dist/client/router';
 
 function DocumentRow({id, fileName, date}) {
     return (
-        <div>
+        <div className="flex items-center p-4 rounded-lg hover:bg-gray-100 text-gray-700 text-sm cursor-pointer transform transition duration-300 ease-out">
             <Icon name='article' size='3xl' color='blue'/>
             <p className='flex-grow pl-5 w-10 pr-10 truncate'>{fileName}</p>
             {/* converts timestamp to local time zone (below) */}
