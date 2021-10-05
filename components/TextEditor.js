@@ -7,6 +7,8 @@ import { useRouter } from 'next/dist/client/router';
 import {convertFromRaw, convertToRaw} from 'draft-js';
 import { useSession } from 'next-auth/client';
 // convert to raw converts to json storable format
+import {useDocumentOnce} from 'react-firebase-hooks/firestore';
+import { useEffect } from 'react';
 
 //Use dynamic import to render editor on the client side not on the node js side, to avoid window is not define error
 const Editor = dynamic(() => import ('react-draft-wysiwyg').then(
@@ -21,6 +23,17 @@ function TextEditor() {
     const [session] = useSession();
     const router = useRouter();
     const {id} = router.query;
+    const [snapshot] = useDocumentOnce(db.collection('UserDocs').doc(session.user.email).collection('docs').doc(id));
+
+    useEffect(() => {
+        if (snapshot?.data()?.editorState) {
+            setEditorState(
+                EditorState.createWithContent(
+                    convertFromRaw(snapshot?.data()?.editorState)
+                )
+            );
+        }
+    },[snapshot]);
 
     const onEditorStateChange  = (editorState) => {
         setEditorState(editorState);
@@ -39,7 +52,7 @@ function TextEditor() {
                 editorState={editorState}
                 onEditorStateChange={onEditorStateChange} 
                 toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
-                editorClassName="mt-6 bg-white shadow-lg max-w-5xl mx-auto mb-12 border p-10"
+                editorClassName="mt-6 bg-white shadow-lg max-w-4xl mx-auto mb-12 border p-10"
             />
         </div>
     )
