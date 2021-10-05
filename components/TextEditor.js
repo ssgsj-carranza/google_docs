@@ -12,7 +12,7 @@ const Editor = dynamic(() => import ('react-draft-wysiwyg').then(
 function TextEditor() {
     return (
         <div>
-            <h1>text edit</h1>
+            <Editor />
         </div>
     )
 }
