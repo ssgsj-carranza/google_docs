@@ -54,3 +54,4 @@ export default Header
 // npm install --save next-auth
 // npm install next-auth @next-auth/firebase-adapter
 // npm install --save react-firebase-hooks
+// npm npm install --save react-draft-wysiwyg draft-js
