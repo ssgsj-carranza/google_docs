@@ -22,7 +22,7 @@ function Doc() {
     // useDocumentOnce acts as a listener, goes into db pulls user email, and doc id 
     
     //Security measure, if user doesnt have access to file name, assume the user doesnt have access to file
-    if(!loadingSnapshot && snapshot?.data()?.fileName) {
+    if(!loadingSnapshot && !snapshot?.data()?.fileName) {
         router.replace('/');
     }
     
@@ -34,6 +34,14 @@ function Doc() {
                 </span>
                 <div className="flex-grow px-2">
                     <h2>{snapshot?.data()?.fileName}</h2>
+                    <div className='flex items-center text-sm space-x-1 -ml-1 h-8 text-gray-600'>
+                        <p>File</p>
+                        <p>Edit</p>
+                        <p>View</p>
+                        <p>Insert</p>
+                        <p>Format</p>
+                        <p>Tools</p>
+                    </div>
                 </div>
             </header>
         </div>
