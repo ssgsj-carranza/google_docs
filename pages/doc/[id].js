@@ -6,6 +6,7 @@ import {db} from '../../firebase';
 import {useDocumentOnce} from 'react-firebase-hooks/firestore';
 import {getSession, signOut, useSession} from 'next-auth/client';
 import Login from '../../components/Login';
+import TextEditor from '../../components/TextEditor';
 
 function Doc() {
     const [session] = useSession();
@@ -57,8 +58,19 @@ function Doc() {
                 </Button>
                 <img className='rounded-full cursor-pointer h-10 w-10 ml-2' src={session.user.image} alt=''/>
             </header>
+            <TextEditor />
         </div>
     );
 }
 
 export default Doc;
+
+export async function getServerSideProps(context){
+    const session = getSession(context);
+
+    return {
+        props: {
+            session
+        },
+    };
+}
