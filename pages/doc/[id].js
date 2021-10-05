@@ -21,6 +21,10 @@ function Doc() {
         console.log(snapshot);
     // useDocumentOnce acts as a listener, goes into db pulls user email, and doc id 
     
+    //Security measure, if user doesnt have access to file name, assume the user doesnt have access to file
+    if(!loadingSnapshot && snapshot?.data()?.fileName) {
+        router.replace('/');
+    }
     
     return (
         <div>
