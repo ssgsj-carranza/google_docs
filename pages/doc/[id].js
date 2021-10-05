@@ -11,10 +11,11 @@ function Doc() {
     const [session] = useSession();
    
     if(!session) return <Login />;
+    
     const router = useRouter();
     const { id } = router.query;
     const [snapshot, loadingSnapshot] = useDocumentOnce(
-        db.collection('userDocs').doc(session.user.email).collection
+        db.collection('UserDocs').doc(session.user.email).collection
         ('docs').doc(id));
 
         console.log(snapshot);
